@@ -227,7 +227,7 @@ h2 {
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 1;
-    width: 10%; /* Adjust as needed to cover the area */
+    width: 7%; /* Adjust as needed to cover the area */
     height: auto;
     pointer-events: none; /* So it doesn't interfere with other elements */
 }
