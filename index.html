@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@9lokk</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="js/inspect.js"></script>
+    <script async src="js/main.js"></script>
+    <style>
+        /* Add CSS styles for the welcome screen */
+        #welcome-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            color: white;
+            font-size: 18px; /* Adjust the font size as needed */
+            cursor: pointer;
+            opacity: 1; /* Initial opacity */
+            transition: opacity 2s; /* Apply fade-out transition */
+            cursor: none;
+        }
+
+        /* Tooltip container */
+        .tooltip {
+            position: relative;
+            display: inline-block;
+        }
+
+        /* Tooltip text */
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 120px;
+            background-color: #000000;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -60px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        /* Show the tooltip text when you mouse over the tooltip container */
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="cursor">
+  <div class="cursor__ball cursor__ball--big ">
+    <svg height="30" width="30">
+      <circle cx="15" cy="15" r="12" stroke-width="0"></circle>
+    </svg>
+  </div>
+  
+  <div class="cursor__ball cursor__ball--small">
+    <svg height="10" width="10">
+      <circle cx="5" cy="5" r="4" stroke-width="0"></circle>
+    </svg>
+  </div>
+</div>
+    <!-- Welcome Screen -->
+    <div id="welcome-screen">
+        <h1 style="font-size: 18px;">Click to Enter</h1>
+    </div>
+
+    <!-- Existing Content -->
+    <div class="video-container">
+        <!-- Video Background -->
+        <video autoplay loop id="bg-video" muted>
+            <source src="background.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+        <!-- Overlay Box -->
+        <div class="overlay-box">
+            <!-- Profile Picture -->
+            <img src="profilepic.png" alt="Profile Picture" class="profile-pic">
+            
+            <!-- Username -->
+            <div class="username-container">
+                <img src="sparkle_black.gif" alt="Sparkles" class="sparkles">
+                <h2>9lokk</h2>
+            </div>
+            
+            <!-- Inner Box -->
+            <div class="inner-box">
+                <!-- Profile Picture with Status -->
+                <div class="profile-with-status">
+                    <img src="pfp.gif" alt="Profile Picture" class="inner-profile-pic">
+                    <img src="dnd.png" alt="Status Symbol" class="status-symbol">
+                </div>
+                
+                <!-- Username and Badges -->
+                <div class="user-info">
+                    <div class="username-with-badges">
+                        <p class="inner-username">glokk.xyz</p>
+                        <div class="badges">
+                            <!-- Badge 1 with tooltip -->
+                            <div class="tooltip">
+                                <img src="bravery.png" alt="Badge 1">
+                                <span class="tooltiptext">HypeSquad Bravery</span>
+                            </div>
+                            
+                            <!-- Badge 2 with tooltip -->
+                            <div class="tooltip">
+                                <img src="activedev.png" alt="Badge 2">
+                                <span class="tooltiptext">Active Developer</span>
+                            </div>
+                            
+                            <!-- Badge 3 with tooltip -->
+                            <div class="tooltip">
+                                <img src="nitro.png" alt="Badge 3">
+                                <span class="tooltiptext">Discord Nitro</span>
+                            </div>
+                            <!-- Add more badges with tooltips as needed -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Discord Status -->
+                <div class="discord-statuss">
+                    <img src="statusemoji.gif" alt="">
+                    <p>.gg/plusexchanges | .gg/dio</p>
+                </div>
+            </div>
+
+            <!-- Social Media Links -->
+            <div class="social-links">
+                <a href="https://discord.gg/r36fhaRw2h" target="_blank">
+                    <img src="discord.png" alt="Discord" class="social-icon">
+                </a>
+                <a href="https://www.instagram.com/glokk.xyz" target="_blank">
+                    <img src="instagram.png" alt="Instagram" class="social-icon">
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript to handle welcome screen behavior -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Mute the video initially
+            document.getElementById("bg-video").muted = true;
+
+            // Add event listener to the welcome screen
+            document.getElementById("welcome-screen").addEventListener("click", function() {
+                // Fade out the welcome screen
+                this.style.opacity = 0;
+                // Unmute the video
+                document.getElementById("bg-video").muted = false;
+                // Hide the welcome screen after the animation finishes
+                setTimeout(() => {
+                    this.style.display = "none";
+                }, 1500); // Adjust the time to match the duration of the transition
+            });
+        });
+    </script>
+</body>
+</html>
